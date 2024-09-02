@@ -23,7 +23,7 @@
         </ul>
     </div>
 @endif
-        <form action="{{ route('register') }}" method="POST">
+        <form action="{{ route('register') }}" method="POST" novalidate>
             @csrf
 
             <div class="mb-5">
@@ -68,7 +68,7 @@
                 name="password"
                 type="password"
                 placeholder="Password de registro"
-                
+
                 class="border p-3 w-full rounded-lg placeholder-gray-400 text-gray" />
             </div>
             <div class="mb-5">

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Devstagram - @yield('titulo')</title>
     <!-- Agrega aquí tus enlaces a archivos CSS y JavaScript con @ vite -->
      @vite('resources/css/app.css')

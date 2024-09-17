@@ -39,12 +39,13 @@ class RegisterController extends Controller
                 'password' => Hash::make($request->password),
             ]);
 
-            // Autenticar al usuario recién creado
-            auth()->login($user);
-
-            // Redirigir al usuario a la ruta posts.index con un mensaje de éxito
-            return redirect()->route('posts.index')->with('success', 'Cuenta creada con éxito');
-        } catch (\Exception $e) {
+            // Intentar autenticar al usuario con las credenciales proporcionadas
+        if (auth()->attempt($request->only('email', 'password'))) {
+            return redirect()->route('posts.index')->with('success', 'Cuenta creada e iniciada sesión con éxito');
+        } else {
+            return redirect()->back()->with('error', 'Error al iniciar sesión después de crear la cuenta');
+        }
+    } catch (\Exception $e) {
             // Manejar el error al crear la cuenta
             // Redirigir al usuario a la página anterior con un mensaje de error
             return redirect()->back()->with('error', 'Error al crear cuenta');

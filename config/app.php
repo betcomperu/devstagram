@@ -168,6 +168,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+
     ])->toArray(),
 
     /*
@@ -181,8 +183,11 @@ return [
     |
     */
 
-    'aliases' => Facade::defaultAliases()->merge([
-        // 'Example' => App\Facades\Example::class,
-    ])->toArray(),
+   'aliases' => Facade::defaultAliases()->merge([
+    // Agrega este alias aquí
+    'Image' => Intervention\Image\Facades\Image::class,
+])->toArray(),
+
+
 
 ];
